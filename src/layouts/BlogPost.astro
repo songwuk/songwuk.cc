@@ -23,7 +23,6 @@ const {
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
-
 	<Body>
 		<Header />
 		<main class="pt-[56px]">
@@ -39,7 +38,7 @@ const {
 						/>
 					)}
 					<h1 class="text-3xl font-ubuntu my-1">{title}</h1>
-					<div clas>{description}</div>
+					<div class='mb-2'>{description}</div>
 						{pubDate && <time>{pubDate}</time>}
 						{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
 					<hr class='border-top border-zinc-400 my-4'/>
