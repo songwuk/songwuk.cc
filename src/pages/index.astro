@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Content from '../components/Content.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import Body from '../components/Body.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<Body>
+		<Header title={SITE_TITLE} />
+		<main class='pt-[56px]'>
+				<h1 class='font-ubuntu text-center'> What I use</h1>
+				<Content>
+					<section>
+							<p class="mb-8 indent-4">
+								Hi I&apos;m becoming indie developer base in Shanghai
+							</p>
+					<section>
+				</Content>
+		</main>
+		<Footer />
+	</Body>
+</html>

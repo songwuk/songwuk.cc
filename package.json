@@ -1,0 +1,31 @@
+{
+  "name": "songwuk.cc",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.7.1",
+    "@astrojs/rss": "^1.0.1",
+    "@astrojs/sitemap": "^1.0.0",
+    "@astrojs/vue": "^1.0.2",
+    "@iconify-json/carbon": "^1.1.8",
+    "@unocss/astro": "^0.45.23",
+    "astro": "^1.3.0",
+    "unocss": "^0.45.23",
+    "untyper": "^0.0.2",
+    "vue": "^3.2.30"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint": "^8.24.0",
+    "eslint-plugin-astro": "^0.19.0"
+  }
+}
