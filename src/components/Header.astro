@@ -1,7 +1,14 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggleButton.vue'
+import DropdownMenu from './DropdownMenu.vue'
 import { HOMEPAGE_URL } from '../config';
+
+const allBlogs = await Astro.glob('../pages/blog/*.md')
+const allTags = new Set<string>()
+allBlogs.map(blog => {
+	blog.frontmatter.tags && blog.frontmatter.tags.map((tag:string) => allTags.add(tag))
+})
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md"> 
@@ -13,7 +20,8 @@ import { HOMEPAGE_URL } from '../config';
 			</h2>
 		</a>
 		<div class="items-center gap-6 hidden md:flex">
-			<HeaderLink href={HOMEPAGE_URL}>Article</HeaderLink>
+			<HeaderLink href='/projects/project'>Project</HeaderLink>
+			<HeaderLink href='/posts/blog'>Blog</HeaderLink>
 			<HeaderLink href="https://github.com/songwuk/songwuk.cc" target="_blank">
 				<div i-carbon-logo-github></div>
 					Source
@@ -21,6 +29,7 @@ import { HOMEPAGE_URL } from '../config';
 		</div>
 		<div flex-1 />
 		<ThemeToggle client:load />
+		<DropdownMenu client:load tags={Array.from(allTags)}/>
 	</nav>
 </div>
 </header>
