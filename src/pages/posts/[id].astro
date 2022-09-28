@@ -1,7 +1,7 @@
 ---
-import CategoryPosts from '../../layouts/Projects.astro'
+import Blog from '../../layouts/Blog.astro'
 export async function getStaticPaths() {
-  const allPosts = await Astro.glob('../posts/*.md')
+  const allPosts = await Astro.glob('../blog/*.md')
   const allTags = new Set<string>()
   allPosts.map(post => {
     post.frontmatter.tags &&
@@ -16,4 +16,4 @@ export async function getStaticPaths() {
 }
 const { name } = Astro.props
 ---
-<CategoryPosts category={name} />
+<Blog category={name} />

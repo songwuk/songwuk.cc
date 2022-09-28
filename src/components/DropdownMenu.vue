@@ -18,12 +18,10 @@ const isShowing = ref<boolean>(false)
         hover:bg-orange-200 dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500
         focus:ring-offset-2 focus:ring-offset-gray-200 transition-all"
         aria-label="menu">
-        <div i-carbon-menu></div>
+        <div i-carbon-menu  aria-hidden="true"></div>
       </MenuButton>
     </div>
     <TransitionRoot
-      :appear=true
-      :show="isShowing"
       enter="transition ease-out duration-100"
       enter-from="transition opacity-0 scale-95"
       enter-to="transition opacity-100 scale-100"

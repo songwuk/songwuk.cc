@@ -7,10 +7,11 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import Body from '../components/Body.astro';
 import { Image } from '@astrojs/image/components' 
+import Weblanguage from '../components/WebLanguage.vue'
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	(a:any, b:any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-);
+)
 ---
 
 <!DOCTYPE html>
@@ -35,7 +36,13 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 											aspectRatio={2.0}
 											alt="Thumbnail"
 										/>
-										<div class='mt-3 text-xl'>{post.frontmatter.title}</div>
+										<div class='mt-3 text-xl'>
+											{post.frontmatter.title}
+											{
+												post.frontmatter.language ?
+												<Weblanguage client:load>{post.frontmatter.language}</Weblanguage>: ''
+											}
+										</div>
 										<div class='opacity-70'>{post.frontmatter.description}</div>
 										<time datetime={post.frontmatter.pubDate}>
 											{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
