@@ -4,9 +4,11 @@ export default defineBuildConfig({
   entries: [
     'src/index',
   ],
-  declaration: true,
+  // declaration: true,
+  failOnWarn: false,
   clean: true,
   rollup: {
     emitCJS: true,
   },
+  // externals: ['i18next']
 })

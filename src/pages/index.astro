@@ -24,6 +24,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 		<main class='pt-[56px]'>
 				<Masthead />
 				<Content>
+					<!-- <div>{t('title')}</div> -->
 					<section>
 						<ul class='grid grid-cols-1 md:grid-cols-2 gap-4'>
 							{posts.map((post) => (

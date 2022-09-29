@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import i18n from '@astrojs/i18n'
+import i18n from 'astrojs-i18n'
 import vue from "@astrojs/vue";
 import image from "@astrojs/image";
 import UnoCSS from 'unocss/astro'
@@ -8,6 +8,7 @@ import addClasses from 'rehype-add-classes'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.songwuk.cc',
+  experimental: { integrations: true },
   integrations: [sitemap(), vue(), image(), UnoCSS(),i18n()],
   markdown: {
     extendDefaultPlugins: true,
