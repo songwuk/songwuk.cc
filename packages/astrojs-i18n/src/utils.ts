@@ -1,6 +1,5 @@
 import { fileURLToPath } from "url";
 import load from '@proload/core'
-import i18next, { t, changeLanguage } from 'i18next'
 /**
  * Adapted from astro's astro-i18nex integration:
  * https://github.com/yassinedoghri/astro-i18next/tree/main

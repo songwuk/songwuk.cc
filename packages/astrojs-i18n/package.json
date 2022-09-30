@@ -1,7 +1,7 @@
 {
   "name": "astrojs-i18n",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.1",
   "packageManager": "pnpm@7.12.0",
   "description": "",
   "author": "Song wuk <1017301325@qq.com>",
@@ -52,7 +52,7 @@
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
+    "start": "esno ./esbuild.config.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
@@ -71,7 +71,7 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.8.3",
     "unbuild": "^0.8.11",
-    "vite": "^3.1.2",
+    "esbuild": "^0.15.10",
     "vitest": "^0.23.4"
   }
 }
