@@ -1,0 +1,8 @@
+---
+const { pathname } = Astro.url;
+---
+<a href={pathname === '/zh/' ? '/' : '/zh/' } class="inline-flex">
+    <div class="flex items-center justify-center">
+        <div i-carbon-translate class="inline-flex cursor-pointer"></div>
+    </div>
+</a>

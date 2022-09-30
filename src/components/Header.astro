@@ -2,13 +2,14 @@
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggleButton.vue'
 import DropdownMenu from './DropdownMenu.vue'
-import ThemeTranslations from './ThemeTranslations.vue'
-
+import ThemeTranslations from './ThemeTranslations.astro'
+import { t, changeLanguage } from 'i18next'
 const allBlogs = await Astro.glob('../pages/blog/*.md')
 const allTags = new Set<string>()
 allBlogs.map(blog => {
 	blog.frontmatter.tags && blog.frontmatter.tags.map((tag:string) => allTags.add(tag))
 })
+changeLanguage('en')
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md"> 
@@ -20,16 +21,16 @@ allBlogs.map(blog => {
 			</h2>
 		</a>
 		<div class="items-center gap-6 hidden md:flex">
-			<HeaderLink href='/projects/project'>Project</HeaderLink>
-			<HeaderLink href='/posts/blog'>Blog</HeaderLink>
+			<HeaderLink href='/projects/project'>{t('website.project')}</HeaderLink>
+			<HeaderLink href='/posts/blog'>{t('website.blog')}</HeaderLink>
 			<HeaderLink href="https://github.com/songwuk/songwuk.cc" target="_blank">
 				<div i-carbon-logo-github></div>
-					Source
+				{t('website.source')}
 			</HeaderLink>
 		</div>
 		<div flex-1 />
 		<ThemeToggle client:load />
-		<ThemeTranslations client:load />
+		<ThemeTranslations />
 		<DropdownMenu client:load tags={Array.from(allTags)}/>
 	</nav>
 </div>
