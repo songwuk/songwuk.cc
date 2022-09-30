@@ -1,8 +1,27 @@
-import i18next, { t, changeLanguage } from "i18next"
-export const transformHtml = (html: string,i18nKey:string,ns:string):string =>{
+import i18next, { t } from "i18next"
+export const transformHtml = (html: string, i18nKey:string, ns:string):string =>{
   const lge = ns || i18next.language
-  changeLanguage(lge)
-  const line = t(i18nKey)
-  console.log(html,line)
-  return line
+  let inline = t(i18nKey,{ lng: lge })
+  if(!i18nKey){
+    console.warn(
+      `WARNING(astrojs-i18n): miss a ${i18nKey}`
+    )
+    return html
+  }
+  console.log(inline,'sss')
+  const inlinetagRE = /\<\/?[0-9]{1,}\>/g
+  const htmltagRE = /\<\/?[a-z]{1,}\>/g
+  if(!htmltagRE.test(html)){
+    return inline
+  }
+  // html.replace(htmltagRE, '<0>')
+  const inlineRE = inline.match(inlinetagRE) as []
+  const htmlRE = html.match(htmltagRE) as []
+  let i = -1
+  for(const htmlindex of htmlRE){
+    i++
+    inline = inline.replace(inlineRE[i], htmlindex)
+  }
+  console.log(inline)
+  return inline
 }

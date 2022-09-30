@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import i18next, { changeLanguage } from 'i18next'
 const changeFn = () => {
-  console.log(i18next)
-  // changeLanguage('zh')
+  
 }
 </script>
 <template>

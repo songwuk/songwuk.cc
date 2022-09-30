@@ -25,10 +25,10 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 		<Header/>
 		<main class='pt-[56px]'>
 				<Masthead />
-				<Transform i18nKey="website.blog" ns='zh' >
+				<Transform i18nKey="website.linehtml" ns='en' >
 					这是一个场游戏<p>p</p><span>span</span>
 				</Transform>
-				{ t('website.blog')}
+				{ t('website.blog',{lng:'en'})}
 				<Content>
 					<!-- <div>{t('title')}</div> -->
 					<section>
