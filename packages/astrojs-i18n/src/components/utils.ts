@@ -8,13 +8,11 @@ export const transformHtml = (html: string, i18nKey:string, ns:string):string =>
     )
     return html
   }
-  console.log(inline,'sss')
-  const inlinetagRE = /\<\/?[0-9]{1,}\>/g
-  const htmltagRE = /\<\/?[a-z]{1,}\>/g
+  const inlinetagRE = /<\/?[0-9]+>/g
+  const htmltagRE = /<[^>]*>/g
   if(!htmltagRE.test(html)){
     return inline
   }
-  // html.replace(htmltagRE, '<0>')
   const inlineRE = inline.match(inlinetagRE) as []
   const htmlRE = html.match(htmltagRE) as []
   let i = -1
@@ -22,6 +20,6 @@ export const transformHtml = (html: string, i18nKey:string, ns:string):string =>
     i++
     inline = inline.replace(inlineRE[i], htmlindex)
   }
-  console.log(inline)
+  console.log(inline, '-------')
   return inline
 }
