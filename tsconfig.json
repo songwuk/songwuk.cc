@@ -10,6 +10,14 @@
     "noEmit": true,
     "types": [
       "@astrojs/image/client"
-    ]
+    ],
+    "paths": {
+      "astrojs-i18n": [ // link -types
+        "./packages/astrojs-i18n/src/index"
+      ],
+      "astrojs-i18n/components": [
+        "./packages/astrojs-i18n/src/components/index"
+      ]
+    }
   }
 }

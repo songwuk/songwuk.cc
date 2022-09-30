@@ -4,5 +4,12 @@
     "description": "这里是中文",
     "ogTitle": "这里是标题",
     "ogImageAlt": "这里是图片的说明"
+  },
+  "website": {
+    "project": "项目",
+    "linehtml": "这是一个场游戏<0>p标签</0><1>span标签</1>",
+    "blog": "博客",
+    "source": "源码",
+    "rights": "版权所有."
   }
 }

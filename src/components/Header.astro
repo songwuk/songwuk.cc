@@ -3,7 +3,6 @@ import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggleButton.vue'
 import DropdownMenu from './DropdownMenu.vue'
 import ThemeTranslations from './ThemeTranslations.vue'
-import { HOMEPAGE_URL } from '../config';
 
 const allBlogs = await Astro.glob('../pages/blog/*.md')
 const allTags = new Set<string>()
@@ -30,7 +29,7 @@ allBlogs.map(blog => {
 		</div>
 		<div flex-1 />
 		<ThemeToggle client:load />
-		<ThemeTranslations />
+		<ThemeTranslations client:load />
 		<DropdownMenu client:load tags={Array.from(allTags)}/>
 	</nav>
 </div>

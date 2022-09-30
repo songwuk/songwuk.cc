@@ -2,6 +2,10 @@ import type { InitOptions } from 'i18next'
 type pathName = {
   loadPath: string
 }
+
+export type configOptions = {
+  configPath: string
+}
 export type AstrojsI18nconfig = {
   defaultLanguage: string,
   supportedLanguages: Array<string>,
