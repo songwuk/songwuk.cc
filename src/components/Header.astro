@@ -21,8 +21,14 @@ changeLanguage('en')
 			</h2>
 		</a>
 		<div class="items-center gap-6 hidden md:flex">
-			<HeaderLink href='/projects/project'>{t('website.project')}</HeaderLink>
-			<HeaderLink href='/posts/blog'>{t('website.blog')}</HeaderLink>
+			{
+				Array.from(allTags).map(tag => {
+					const ti18 = `website.${tag.toLocaleLowerCase()}`
+					return(	<HeaderLink href={tag.toLocaleLowerCase() === 'project' ?
+            '/projects/' + tag.toLocaleLowerCase() :
+            '/posts/'+tag.toLocaleLowerCase()}>{t(ti18)}</HeaderLink>)
+				})
+			}
 			<HeaderLink href="https://github.com/songwuk/songwuk.cc" target="_blank">
 				<div i-carbon-logo-github></div>
 				{t('website.source')}
@@ -30,7 +36,7 @@ changeLanguage('en')
 		</div>
 		<div flex-1 />
 		<ThemeToggle client:load />
-		<ThemeTranslations />
+		<!-- <ThemeTranslations /> -->
 		<DropdownMenu client:load tags={Array.from(allTags)}/>
 	</nav>
 </div>

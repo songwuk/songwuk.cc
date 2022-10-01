@@ -26,11 +26,7 @@ changeLanguage('en')
 		<Header/>
 		<main class='pt-[56px]'>
 				<Masthead />
-				<!-- <Transform i18nKey="website.linehtml" ns='zh' >
-					这是一个场游戏<p class='c-orange-400'>p</p><span>span</span>
-				</Transform> -->
 				<Content>
-					<!-- <div>{t('title')}</div> -->
 					<section>
 						<ul class='grid grid-cols-1 md:grid-cols-2 gap-4'>
 							{posts.map((post) => (
@@ -45,10 +41,6 @@ changeLanguage('en')
 										/>
 										<div class='mt-3 text-xl'>
 											{post.frontmatter.title}
-											{
-												post.frontmatter.language ?
-												<Weblanguage client:load>{post.frontmatter.language}</Weblanguage>: ''
-											}
 										</div>
 										<div class='opacity-70'>{post.frontmatter.description}</div>
 										<time datetime={post.frontmatter.pubDate}>
