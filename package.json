@@ -18,6 +18,7 @@
     "@astrojs/image": "^0.7.1",
     "@astrojs/rss": "^1.0.1",
     "@astrojs/sitemap": "^1.0.0",
+    "astrojs-i18n": "0.0.1-alpha.1",
     "@astrojs/vue": "^1.0.2",
     "@astrojs/netlify": "^1.1.0",
     "@headlessui/vue": "^1.7.2",
