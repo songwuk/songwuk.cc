@@ -10,5 +10,3 @@ language:
 updatedDate: 'Oct 1 2022'
 heroImage: "/untyper.png"
 ---
-
-ddmoeee
