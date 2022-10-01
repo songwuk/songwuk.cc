@@ -20,7 +20,6 @@
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/vue": "^1.0.2",
     "@astrojs/netlify": "^1.1.0",
-    "astrojs-i18n": "*",
     "@headlessui/vue": "^1.7.2",
     "@iconify-json/carbon": "^1.1.8",
     "@iconify-json/material-symbols": "^1.1.18",
