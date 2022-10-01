@@ -11,6 +11,11 @@ export default defineConfig({
   site: 'https://www.songwuk.cc',
   output: 'server',
   adapter: netlify(),
+  vite: {
+    ssr: {
+      noExternal: ["astrojs-i18n"]
+    }
+  },
   experimental: { integrations: true },
   integrations: [sitemap(), vue(), image(), UnoCSS(),i18n()],
   markdown: {
