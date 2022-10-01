@@ -3,11 +3,14 @@ import sitemap from '@astrojs/sitemap';
 import i18n from 'astrojs-i18n'
 import vue from "@astrojs/vue";
 import image from "@astrojs/image";
+import netlify from '@astrojs/netlify/functions';
 import UnoCSS from 'unocss/astro'
 import addClasses from 'rehype-add-classes'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.songwuk.cc',
+  output: 'server',
+  adapter: netlify(),
   experimental: { integrations: true },
   integrations: [sitemap(), vue(), image(), UnoCSS(),i18n()],
   markdown: {
