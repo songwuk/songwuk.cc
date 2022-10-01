@@ -4,7 +4,7 @@ title: "untyper "
 description: "A simple typewriter for browser,Typing effects can be achieved using chained methods"
 tags:
   - Project
-pubDate: "Sep 28 2022"
+pubDate: "Oct 1 2022"
 language: 
   - en
 updatedDate: 'Oct 1 2022'

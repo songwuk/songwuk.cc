@@ -19,7 +19,7 @@ const posts = (await Astro.glob('../pages/blog/*.md'))
       new Date(b.frontmatter.createdAt).valueOf() -
       new Date(a.frontmatter.createdAt).valueOf()
   )
-  .filter(item => item.frontmatter.tags && item.frontmatter.tags.includes(category))
+  .filter(item => item.frontmatter.tags && item.frontmatter.tags.includes("Blog"))
 
 ---
 
@@ -33,7 +33,7 @@ const posts = (await Astro.glob('../pages/blog/*.md'))
     <main class="pt-[56px]">
       <Masthead />
       <Content>
-        <Breadcrumb>{category}</Breadcrumb>
+        <Breadcrumb>Blog</Breadcrumb>
         <section>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
