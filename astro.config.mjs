@@ -32,6 +32,7 @@ export default defineConfig({
           h6: 'font-bold font-ubuntu my-2',
           img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6',
           p: 'mb-6',
+          code: 'bg-zinc-300 dark:bg-black',
           a: 'underline underline-offset-2 hover:text-emerald-500 decoration-emerald-500'
         }
       ]
