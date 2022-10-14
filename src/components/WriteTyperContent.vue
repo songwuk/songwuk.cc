@@ -13,17 +13,11 @@ const props = withDefaults(defineProps<Props>(),{
   textStatus: true
 })
 const languageCode:Record<string,any> = {
-  'fr-ca': {
-    text: 'Bonjour, je deviens développeur indépendant !'
-  },
-  'ko': {
-    text: '안녕하세요 인디 개발자가 되고 있습니다 !'
-  },
-  'zh-CN': {
-    text: '嗨，我正在成为独立开发者 !'
-  },
+  // 'zh-CN': {
+  //   text: '嗨，我正在成为独立<span style="color: rgb(253,186,116)">开发者 !</span>'
+  // },
   'en-US':  {
-    text: 'Hi I am becoming indie developer !'
+    text: 'Hi I&apos; becoming indie <span style="color: rgb(253,186,116)">developer !</span>'
   },
 }
 onMounted(async ()=> {
@@ -37,9 +31,9 @@ onMounted(async ()=> {
       const textLine = languageCode[key].text
       const len = textLine.length
       if(i === keys.length){
-        unTyper.type(textLine,{ delay: 1000 })
+        unTyper.add(textLine,{ delay: 100 })
       } else {
-        unTyper.type(textLine,{ delay: 1000 }).delete(len)
+        unTyper.add(textLine,{ delay: 100 })
       }
     });
     unTyper.go()
