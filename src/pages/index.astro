@@ -10,7 +10,7 @@ import { Image } from '@astrojs/image/components'
 import Weblanguage from '../components/WebLanguage.vue'
 import i18next, { t, changeLanguage } from 'i18next'
 
-import { Transform } from 'astrojs-i18n/components'
+// import { Transform } from 'astrojs-i18n/components'
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	(a:any, b:any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 )
@@ -28,30 +28,16 @@ changeLanguage('en')
 				<Masthead />
 				<Content>
 					<section>
-						<ul class='grid grid-cols-1 md:grid-cols-2 gap-4'>
-							{posts.map((post) => (
-								<li class="text-center mb-4">
+						<ul class='grid grid-cols-1 md:grid-cols-3 gap-4 md:cursor-pointer grid-text-left'>
+							{posts.map((post, i) => (
+								<li class="flex justify-between md:text-center  md:block">
 									<a href={post.url}>
-										{
-											post.frontmatter.heroImage && <Image
-											class="border border-slate-300 dark:border-zinc-700 rounded-xl"
-											src={post.frontmatter.heroImage}
-											width={720*2}
-											aspectRatio={2.0}
-											alt="Thumbnail"
-											/>
-										}
-										<div class='mt-3 text-xl'>
-											{post.frontmatter.title}
-										</div>
-										<div class='opacity-70'>{post.frontmatter.description}</div>
-										<time datetime={post.frontmatter.pubDate}>
-											{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-												year: 'numeric',
-												month: 'short',
-												day: 'numeric',
-											})}
-										</time>
+										<span>{post.frontmatter.title}</span>
+										<span>{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+													year: 'numeric',
+													month: 'short',
+													day: 'numeric',
+												})}</span>
 									</a>
 								</li>
 							))}

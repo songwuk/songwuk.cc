@@ -1,5 +1,5 @@
 <template>
-  <div class="writetyper"></div>
+  <div class="writetyper" text-3xl></div>
 </template>
 <script setup lang="ts">
 
