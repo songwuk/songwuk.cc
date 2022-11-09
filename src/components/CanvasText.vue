@@ -11,7 +11,6 @@
   const canvas = ref<HTMLCanvasElement | null>(null)
   onMounted(() => {
     const ctx = canvas.value!.getContext('2d')
-    canvas.value!.width = document.documentElement.clientWidth
     const width = canvas.value!.width
     const height = canvas.value!.height
     const bgData = Array.from(new Array(400)).map(v => {
