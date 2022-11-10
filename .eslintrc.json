@@ -2,7 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "extends": [
-    // "plugin:astro/recommend"
+    "plugin:astro/recommended"
   ],
   "overrides": [
     {
@@ -13,5 +13,8 @@
         "extraFileExtensions": [".astro"]
       }
     }
-  ]
+  ],
+  "rules": {
+    
+  }
 }
