@@ -1,7 +1,5 @@
 <template>
-  <div class="absolute w-full h-80"  ref="getBlock">
-    <img class="relative h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50" src='/placeholder-about.jpg' />
-  </div>
+  <div class="absolute w-full h-80"  ref="getBlock"></div>
   <canvas ref="canvas"></canvas>
 </template>
 <script setup lang="ts">
