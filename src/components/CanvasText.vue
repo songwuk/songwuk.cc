@@ -1,5 +1,8 @@
 <template>
-  <canvas ref="canvas" w-full h-80></canvas>
+  <div class="absolute w-full h-80"  ref="getBlock">
+    <img class="relative h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50" src='/placeholder-about.jpg' />
+  </div>
+  <canvas ref="canvas"></canvas>
 </template>
 <script setup lang="ts">
   import { ref, onMounted} from 'vue'
@@ -9,25 +12,31 @@
   // const attrs = useAttrs()
   // attrsin.attrs = attrs
   const canvas = ref<HTMLCanvasElement | null>(null)
+  const getBlock = ref<HTMLDivElement | null>(null)
   onMounted(() => {
-    const ctx = canvas.value!.getContext('2d')
-    canvas.value!.width = document.documentElement.clientWidth
-    const width = canvas.value!.width
-    const height = canvas.value!.height
+    const ctx = canvas.value?.getContext('2d')!
+    const {clientWidth: width, clientHeight:height} = getBlock.value!
+    const scale = 2
+    canvas.value!.width = width * scale
+    canvas.value!.height = height * scale
+    canvas.value!.style.width = (canvas.value!.width / scale ) + 'px'
+    canvas.value!.style.height = (canvas.value!.height / scale) + 'px'
+    const markwidth = width * scale
+    const markHeight = height * scale
     const bgData = Array.from(new Array(400)).map(v => {
       return {
-        x: Math.random() * width,
-        y: Math.random() * height,
-        step: Math.random() * 1.0 + 0.5
+        x: Math.random() * markwidth,
+        y: Math.random() * markHeight,
+        step: Math.random() * 1.0 + 1
       }
     })
     const render = () => {
       ctx!.beginPath()
       ctx!.fillStyle = '#ffffff'
-      ctx!.clearRect(0, 0, width, height)
+      ctx!.clearRect(0, 0, markwidth, markHeight)
       bgData.forEach(v => {
-        v.y = v.y > height ? 0 : (v.y + v.step)
-        ctx!.rect(v.x, v.y, 2, 2)
+        v.y = v.y > markHeight ? 0 : (v.y + v.step)
+        ctx!.rect(v.x, v.y, 2*scale, 2*scale)
       })
       ctx!.fill()
       requestAnimationFrame(render)
