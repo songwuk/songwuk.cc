@@ -13,6 +13,7 @@
   // attrsin.attrs = attrs
   const canvas = ref<HTMLCanvasElement | null>(null)
   const getBlock = ref<HTMLDivElement | null>(null)
+
   onMounted(() => {
     const ctx = canvas.value?.getContext('2d')!
     const {clientWidth: width, clientHeight:height} = getBlock.value!
@@ -30,9 +31,40 @@
         step: Math.random() * 1.0 + 1
       }
     })
+    const theme = (() => {
+      if(typeof localStorage !== 'undefined' && localStorage.getItem('theme')){
+        return localStorage.getItem('theme')
+      }
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      }
+      return 'light'
+    })()
+    let fillColor = theme !== 'light' ? '#ffffff': '#000000'
+    if(typeof window !== undefined){
+      const root = document.querySelector('html') || document.body
+      const observer = new MutationObserver((mutations: MutationRecord[]) => {
+        const attrs = getAttrs(mutations)
+        if(attrs){
+          attrs.forEach(attr => {
+           if(!attr.getAttribute('class')){
+            fillColor = '#000000'
+           } else {
+            fillColor = '#ffffff'
+           }
+          })
+        }
+      });
+      observer.observe(root, {
+        childList: false,
+        attributes: true,
+        subtree: false
+      })
+    }
+    
     const render = () => {
       ctx!.beginPath()
-      ctx!.fillStyle = '#ffffff'
+      ctx!.fillStyle = fillColor
       ctx!.clearRect(0, 0, markwidth, markHeight)
       bgData.forEach(v => {
         v.y = v.y > markHeight ? 0 : (v.y + v.step)
@@ -43,4 +75,14 @@
     }
     render()
   })
+  function getAttrs(mutations: MutationRecord[]) {
+    return mutations.reduce((elemet: Set<Element>, mutation: MutationRecord)=> {
+      if(mutation.target instanceof Element){
+        if(!elemet.has(mutation.target)){
+          elemet.add(mutation.target)
+        }
+      }
+      return elemet
+    }, new Set<Element>())
+  }
 </script>
