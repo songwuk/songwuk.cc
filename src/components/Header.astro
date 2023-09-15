@@ -1,7 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import ThemeToggle from './ThemeToggleButton.vue'
-import DropdownMenu from './DropdownMenu.vue'
+import ThemeToggle from './vue/ThemeToggleButton.vue'
+import DropdownMenu from './vue/DropdownMenu.vue'
 import ThemeTranslations from './ThemeTranslations.astro'
 import { t, changeLanguage } from 'i18next'
 const allBlogs = await Astro.glob('../pages/blog/*.md')
