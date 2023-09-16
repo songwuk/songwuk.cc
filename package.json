@@ -25,6 +25,7 @@
     "@iconify-json/carbon": "^1.1.18",
     "@iconify-json/material-symbols": "^1.1.49",
     "@unocss/astro": "^0.45.30",
+    "@vueuse/core": "^10.4.1",
     "astro": "^1.9.2",
     "astrojs-i18n": "0.0.1-alpha.1",
     "rehype-add-classes": "^1.0.0",
