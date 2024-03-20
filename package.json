@@ -28,6 +28,7 @@
     "@vueuse/core": "^10.4.1",
     "astro": "^1.9.2",
     "astrojs-i18n": "0.0.1-alpha.1",
+    "octokit": "^3.1.0",
     "rehype-add-classes": "^1.0.0",
     "unocss": "^0.45.30",
     "untyper": "^0.0.6",
