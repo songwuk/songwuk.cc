@@ -19,5 +19,9 @@
         "./packages/astrojs-i18n/src/components/index"
       ]
     }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.md"
+  ]
 }
