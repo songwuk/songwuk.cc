@@ -5,7 +5,7 @@ const { href, class: className, ...props } = Astro.props;
 const isActive = href === Astro.url.pathname.replace(/\/$/, '');
 ---
 
-<a href={href} class:list={[className, {'underline underline-offset-4 hover:text-emerald-500 decoration-emerald-500': isActive }]} {...props}>
+<a href={href} class:list={[className, {'underline': isActive, 'hover:text-orange-500': true}]} {...props}>
 	<slot />
 </a>
 <style>
@@ -18,5 +18,10 @@ const isActive = href === Astro.url.pathname.replace(/\/$/, '');
 	a.active {
 		font-weight: bolder;
 		text-decoration: underline;
+	}
+	.underline {
+		text-decoration-line: underline;
+		text-underline-offset: 4px;
+		text-decoration-color: rgba(249, 115, 22, 1);
 	}
 </style>

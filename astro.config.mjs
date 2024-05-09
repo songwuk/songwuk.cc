@@ -1,24 +1,16 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import i18n from 'astrojs-i18n'
 import vue from "@astrojs/vue";
-import image from "@astrojs/image";
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify';
 import UnoCSS from 'unocss/astro'
 import addClasses from 'rehype-add-classes'
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://www.songwuk.cc',
+  site: 'https://www.songwuk.cc/',
   output: 'server',
   adapter: netlify(),
-  vite: {
-    ssr: {
-      noExternal: ["astrojs-i18n"]
-    }
-  },
-  experimental: { integrations: true },
-  integrations: [sitemap(), vue(), image(), UnoCSS(),i18n()],
+  integrations: [sitemap(), vue(), UnoCSS()],
   markdown: {
+    gfm: true,
     extendDefaultPlugins: true,
     rehypePlugins: [
       [
@@ -32,8 +24,8 @@ export default defineConfig({
           h6: 'font-bold font-ubuntu my-2',
           img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6',
           p: 'mb-6',
-          code: 'bg-zinc-300 dark:bg-black',
-          a: 'underline underline-offset-2 hover:text-emerald-500 decoration-emerald-500'
+          pre: 'bg-zinc-300 dark:bg-black dark:border-zinc-700 border border-slate-100 rounded-xl padding-1',
+          a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500'
         }
       ]
     ]

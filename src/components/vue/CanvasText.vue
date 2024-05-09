@@ -4,11 +4,6 @@
 </template>
 <script setup lang="ts">
   import { ref, onMounted} from 'vue'
-  // let attrsin = reactive<Record<string, object>>({
-  //   attrs: {}
-  // })
-  // const attrs = useAttrs()
-  // attrsin.attrs = attrs
   const canvas = ref<HTMLCanvasElement | null>(null)
   const getBlock = ref<HTMLDivElement | null>(null)
 
@@ -78,6 +73,8 @@
       if(mutation.target instanceof Element){
         if(!elemet.has(mutation.target)){
           elemet.add(mutation.target)
+        } else {
+          elemet.delete(mutation.target)
         }
       }
       return elemet

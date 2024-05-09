@@ -2,20 +2,18 @@
 /**
  * project
  */
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import BaseHead from '../components/astro/BaseHead.astro'
 import Body from '../components/astro/Body.astro'
 import Breadcrumb from '../components/astro/Breadcrumb.astro'
 import Content from '../components/astro/Content.astro'
 import Footer from '../components/astro/Footer.astro'
 import Header from '../components/astro/Header.astro'
-import Masthead from '../components/astro/Masthead.astro'
-import Weblanguage from '../components/vue/WebLanguage.vue'
 import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
+import { images } from '../utils'
 export interface Props {
   category: string
 }
-const { category } = Astro.props
 const posts = (await Astro.glob('../pages/blog/*.md'))
   .sort(
     (a, b) =>
@@ -42,13 +40,14 @@ const posts = (await Astro.glob('../pages/blog/*.md'))
               posts.map(post => (
                 <li class="text-center mb-4">
                   <a href={post.url}>
-                    <Image
+                   {
+                     post.frontmatter.heroImage  && <Image
                       class="border border-slate-300 dark:border-zinc-700 rounded-xl"
-                      src={post.frontmatter.heroImage as string}
+                      src={images[post.frontmatter.heroImage]()}
                       width={720 * 2}
-                      aspectRatio={2.0}
                       alt="Thumbnail"
                     />
+                   }
                     <div class="mt-3 text-xl font-bold">
                       {post.frontmatter.title}
                     </div>

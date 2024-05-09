@@ -2,8 +2,6 @@
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from '../vue/ThemeToggleButton.vue'
 import DropdownMenu from '../vue/DropdownMenu.vue'
-import ThemeTranslations from './ThemeTranslations.astro'
-import { t, changeLanguage } from 'i18next'
 const allBlogs = await Astro.glob('../../pages/blog/*.md')
 const allTags = new Set<string>()
 allBlogs.sort(
@@ -12,7 +10,9 @@ allBlogs.sort(
 ).map(blog => {
 	blog.frontmatter.tags && blog.frontmatter.tags.map((tag:string) => allTags.add(tag))
 })
-changeLanguage('en')
+const tagUrl = (tag) => {
+	return tag.toLocaleLowerCase() === 'project' ? '/projects/' + tag.toLocaleLowerCase() : '/posts/'+tag.toLocaleLowerCase()
+}
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md"> 
@@ -26,15 +26,12 @@ changeLanguage('en')
 		<div class="items-center gap-6 hidden md:flex">
 			{
 				Array.from(allTags).map(tag => {
-					const ti18 = `website.${tag.toLocaleLowerCase()}`
-					return(	<HeaderLink href={tag.toLocaleLowerCase() === 'project' ?
-            '/projects/' + tag.toLocaleLowerCase() :
-            '/posts/'+tag.toLocaleLowerCase()}>{t(ti18)}</HeaderLink>)
+					return(	<HeaderLink href={tagUrl(tag)}>{tag.toLocaleLowerCase()}</HeaderLink>)
 				})
 			}
 			<HeaderLink href="https://github.com/songwuk/songwuk.cc" target="_blank">
 				<div i-carbon-logo-github></div>
-				{t('website.source')}
+				Source
 			</HeaderLink>
 		</div>
 		<div flex-1 />

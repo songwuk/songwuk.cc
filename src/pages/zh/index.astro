@@ -6,19 +6,15 @@ import Masthead from '../../components/astro/Masthead.astro';
 import Footer from '../../components/astro/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
 import Body from '../../components/astro/Body.astro';
-import { Image } from '@astrojs/image/components' 
+import { Image } from 'astro:assets' 
 import Weblanguage from '../../components/vue/WebLanguage.vue'
-import i18next, { t, changeLanguage } from 'i18next'
-
-import { Transform } from 'astrojs-i18n/components'
 const posts = (await Astro.glob('../blog/*.{md,mdx}')).sort(
 	(a:any, b:any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 ).filter(page => page.frontmatter.language && page.frontmatter.language.includes('zh'))
-changeLanguage('zh')
 ---
 
 <!DOCTYPE html>
-<html lang={i18next.language}>
+<html lang='zh'>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
@@ -40,7 +36,6 @@ changeLanguage('zh')
 											class="border border-slate-300 dark:border-zinc-700 rounded-xl"
 											src={post.frontmatter.heroImage}
 											width={720*2}
-											aspectRatio={2.0}
 											alt="Thumbnail"
 										/>
 										<div class='mt-3 text-xl'>
