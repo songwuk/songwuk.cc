@@ -47,7 +47,7 @@ docker run --detach \
 ### 安装完成
 等安装好了,打开你本地的ip访问应该会出现下面这个页面👇🏻(刷新下)
 
-![docker-gitlab-index](/public/docker-gitlab/docker-gitlab-index.png)
+![docker-gitlab-index](/docker-gitlab/docker-gitlab-index.png)
 
 
 ### 获取密码
@@ -82,8 +82,8 @@ docker run --rm -it -v gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-run
 end 
 
 ### 你的第一个gitlab-runner 就注册好了，接下来你就可以在gitlab看到实际效果
-![docker-gitlab-runner-image](/public/docker-gitlab/docker-gitlab-runner-image.png)
-![docker-gitlab-runner-image-pipelines](/public/docker-gitlab/docker-gitlab-runner-image-pipelines.png)
+![docker-gitlab-runner-image](/docker-gitlab/docker-gitlab-runner-image.png)
+![docker-gitlab-runner-image-pipelines](/docker-gitlab/docker-gitlab-runner-image-pipelines.png)
 这里有很多详细的配置[`.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/lib/gitlab/ci/templates)
 
 
