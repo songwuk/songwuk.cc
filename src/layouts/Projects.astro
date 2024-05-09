@@ -17,8 +17,8 @@ export interface Props {
 const posts = (await Astro.glob('../pages/blog/*.md'))
   .sort(
     (a, b) =>
-      new Date(b.frontmatter.createdAt).valueOf() -
-      new Date(a.frontmatter.createdAt).valueOf()
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
   )
   .filter(item => item.frontmatter.tags && item.frontmatter.tags.includes('Project'))
 ---
