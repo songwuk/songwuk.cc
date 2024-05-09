@@ -2,6 +2,7 @@
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from '../vue/ThemeToggleButton.vue'
 import DropdownMenu from '../vue/DropdownMenu.vue'
+import WriteTyper from '../vue/WriteTyperContent.vue'
 const allBlogs = await Astro.glob('../../pages/blog/*.md')
 const allTags = new Set<string>()
 allBlogs.sort(
@@ -20,7 +21,7 @@ const tagUrl = (tag) => {
 	<nav class="flex items-center gap-3 text-base">
 		<a href="/" class="group">
 			<h2 class="font-semibold tracking-tighter p-2 font-ubuntu  text-lg m-0">
-				Songwuk
+				<WriteTyper client:load textStatus={true} textContent="Songwuk"/>
 			</h2>
 		</a>
 		<div class="items-center gap-6 hidden md:flex">
