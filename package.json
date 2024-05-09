@@ -24,7 +24,7 @@
     "@headlessui/vue": "^1.7.22",
     "@iconify-json/carbon": "^1.1.32",
     "@iconify-json/material-symbols": "^1.1.79",
-    "@unocss/astro": "^0.60.0",
+    "@unocss/astro": "^0.45.30",
     "@vueuse/core": "^10.9.0",
     "astro": "^4.7.1",
     "octokit": "^3.2.1",
