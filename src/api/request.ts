@@ -1,4 +1,4 @@
-export const TOKEN = "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"
+export const TOKEN = "xxxxx"
 import { Octokit } from "octokit";
 // Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
 const octokit = new Octokit({ auth: TOKEN});
