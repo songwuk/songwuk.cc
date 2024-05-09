@@ -27,7 +27,8 @@ export default defineConfig({
           img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6',
           p: 'mb-6',
           pre: 'bg-zinc-300 dark:bg-black dark:border-zinc-700 border border-slate-100 rounded-xl padding-1',
-          a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500'
+          a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500',
+          strong: 'dark:bg-zinc-300 dark:c-black bg-black c-zinc-300 rounded-1'
         }
       ]
     ]
