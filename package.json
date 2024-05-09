@@ -24,14 +24,15 @@
     "@headlessui/vue": "^1.7.22",
     "@iconify-json/carbon": "^1.1.32",
     "@iconify-json/material-symbols": "^1.1.79",
-    "@unocss/astro": "^0.45.30",
+    "@unocss/astro": "^0.60.0",
     "@vueuse/core": "^10.9.0",
     "astro": "^4.7.1",
     "octokit": "^3.2.1",
     "rehype-add-classes": "^1.0.0",
     "typescript": "^5.4.5",
-    "unocss": "^0.45.30",
+    "unocss": "^0.60.0",
     "untyper": "^0.0.9",
+    "vite": "^5.2.11",
     "vue": "^3.4.27"
   },
   "devDependencies": {

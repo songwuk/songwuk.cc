@@ -8,7 +8,9 @@ export default defineConfig({
   site: 'https://www.songwuk.cc/',
   output: 'server',
   adapter: netlify(),
-  integrations: [sitemap(), vue(), UnoCSS()],
+  integrations: [sitemap(), vue(), UnoCSS({
+    injectReset: true // or a path to the reset file
+  })],
   markdown: {
     gfm: true,
     extendDefaultPlugins: true,
