@@ -41,14 +41,14 @@ const posts = (await Astro.glob('../pages/blog/*.md'))
                 <li class="text-center mb-4">
                   <a href={post.url}>
                    {
-                     post.frontmatter.heroImage  && <Image
+                     post.frontmatter.heroImage && <Image
                       class="border border-slate-300 dark:border-zinc-700 rounded-xl"
-                      src={images[post.frontmatter.heroImage]()}
+                      src={images['/public'+post.frontmatter.heroImage]()}
                       width={720 * 2}
-                      alt="Thumbnail"
+                      alt={post.frontmatter.description}
                     />
                    }
-                    <div class="mt-3 text-xl font-bold">
+                    <div class:list={['mt-3 text-xl font-bold',{ ' md:mt-57.5!' : !post.frontmatter.heroImage ? true: false}]}>
                       {post.frontmatter.title}
                     </div>
                     <div>{post.frontmatter.description}</div>
