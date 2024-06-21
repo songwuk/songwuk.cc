@@ -11,6 +11,6 @@ language:
 heroImage: "/nia_logo.png"
 ---
 
-感兴趣可以直接访问:https://teamnia.com
+感兴趣可以直接访问:https://newia.uk
 
 #### 等待更新
