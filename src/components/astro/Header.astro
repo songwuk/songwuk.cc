@@ -12,7 +12,11 @@ allBlogs.sort(
 	blog.frontmatter.tags && blog.frontmatter.tags.map((tag:string) => allTags.add(tag))
 })
 const tagUrl = (tag) => {
-	return tag.toLocaleLowerCase() === 'project' ? '/projects/' + tag.toLocaleLowerCase() : '/posts/'+tag.toLocaleLowerCase()
+	return tag.toLocaleLowerCase() === 'project'
+	? '/projects/' + tag.toLocaleLowerCase() 
+	: tag.toLocaleLowerCase() === 'blog'
+	? '/posts/'+tag.toLocaleLowerCase()
+	: '/resume/'+tag.toLocaleLowerCase()
 }
 ---
 

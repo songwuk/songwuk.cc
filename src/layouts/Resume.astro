@@ -1,8 +1,8 @@
 ---
 /**
- * blog/博客
+ * resume/简历
  */
-import { Image } from 'astro:assets'
+ import { Image } from 'astro:assets'
 import BaseHead from '../components/astro/BaseHead.astro'
 import Body from '../components/astro/Body.astro'
 import Breadcrumb from '../components/astro/Breadcrumb.astro'
@@ -21,7 +21,7 @@ const posts = (await Astro.glob('../pages/blog/*.md'))
       new Date(b.frontmatter.pubDate).valueOf() -
       new Date(a.frontmatter.pubDate).valueOf()
   )
-  .filter(item => item.frontmatter.tags && item.frontmatter.tags.includes("Blog"))
+  .filter(item => item.frontmatter.tags && item.frontmatter.tags.includes("resume"))
 
 ---
 
@@ -33,9 +33,8 @@ const posts = (await Astro.glob('../pages/blog/*.md'))
   <Body>
     <Header title={SITE_TITLE} />
     <main class="pt-[56px]">
-      <!-- <Masthead /> -->
       <Content>
-        <Breadcrumb>Blog</Breadcrumb>
+        <Breadcrumb>Resume</Breadcrumb>
         <section>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
